@@ -1,8 +1,4 @@
-/* پایه‌ی تیره */
-body.o_web_client {
-    background-color: #111111;
-    color: #f5f5f5;
-}
+/* ===== Borun Studios – Lightweight Dark Backend Theme ===== */
 
 /* رنگ‌های برند بورون */
 :root {
@@ -10,6 +6,56 @@ body.o_web_client {
     --borun-accent-2: #d5a5c8;
     --borun-accent-3: #8fece4;
     --borun-accent-4: #c6fecd;
+
+    --borun-bg-main: #111111;
+    --borun-bg-panel: #181818;
+    --borun-bg-card: #202020;
+    --borun-text-main: #f5f5f5;
+    --borun-text-muted: #b3b3b3;
+}
+
+/* بدنه‌ی کلی */
+body.o_web_client {
+    background-color: var(--borun-bg-main);
+    color: var(--borun-text-main);
+}
+
+/* نوار بالا و کنترل پنل */
+.o_main_navbar,
+.o_control_panel {
+    background-color: var(--borun-bg-panel);
+    color: var(--borun-text-main);
+}
+
+/* محتوای فرم‌ها و لیست‌ها */
+.o_content,
+.o_form_view,
+.o_list_view tbody tr {
+    background-color: var(--borun-bg-main);
+    color: var(--borun-text-main);
+}
+
+/* کارت‌ها، داشبوردها، کانبان */
+.o_kanban_view .o_kanban_record,
+.o_dashboard,
+.o_card {
+    background-color: var(--borun-bg-card);
+    color: var(--borun-text-main);
+    border-radius: 6px;
+}
+
+/* متن‌های ملایم‌تر */
+.o_muted,
+.text-muted,
+.o_stat_value small {
+    color: var(--borun-text-muted) !important;
+}
+
+/* لینک‌ها */
+a,
+.o_form_uri,
+.o_link {
+    color: var(--borun-accent-3);
 }
 
 /* دکمه‌های اصلی */
@@ -21,25 +67,29 @@ button.btn-fill-primary {
     color: #111111;
 }
 
-/* لینک‌ها و هایلایت‌ها */
-a,
-.o_kanban_record_title,
-.o_list_view .o_data_row.o_selected {
+/* دکمه‌های ثانویه / لینک‌دار */
+button.btn-secondary,
+.o_button_import,
+.o_button_export {
+    background-color: var(--borun-bg-panel);
+    border-color: var(--borun-bg-panel);
     color: var(--borun-accent-3);
 }
 
-/* کارت‌ها و باکس‌ها */
-.o_form_sheet_bg,
-.o_kanban_view .o_kanban_record,
-.o_list_view,
-.o_searchview,
-.o_control_panel {
-    background-color: #141414;
-    color: #f5f5f5;
+/* هاور دکمه‌ها */
+button.btn-primary:hover,
+.o_form_button_save:hover {
+    filter: brightness(1.08);
 }
 
-/* ردیف‌های جدول */
-.table-striped tbody tr:nth-of-type(odd),
-.o_list_view tbody tr.o_data_row:nth-child(odd) {
-    background-color: #181818;
+/* ردیف‌های جدول یکی در میان کمی تیره‌تر */
+.o_list_view tbody tr:nth-child(odd) {
+    background-color: #151515;
+}
+
+/* بکگراندِ دکمه‌های سبز استیتوس (Paid, Posted, ...) را کمی هماهنگ کنیم */
+.badge-success,
+.o_status_green {
+    background-color: var(--borun-accent-1) !important;
+    color: #111111 !important;
 }
