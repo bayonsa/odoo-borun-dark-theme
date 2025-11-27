@@ -203,3 +203,25 @@ textarea.o_input:focus {
         color: $borun-link-hover;
     }
 }
+
+// ============================
+// extra: لینک‌ها و text-primary
+// ============================
+
+// هرجایی که Odoo از text-primary یا btn-link استفاده می‌کند
+.text-primary,
+a.btn-link,
+.btn-link,
+.o_form_sheet a,
+.o_settings_container a {
+    color: $borun-link;
+}
+
+.text-primary:hover,
+a.btn-link:hover,
+.btn-link:hover,
+.o_form_sheet a:hover,
+.o_settings_container a:hover {
+    color: $borun-link-hover;
+    text-decoration: none;
+}
