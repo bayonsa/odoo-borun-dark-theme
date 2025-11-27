@@ -1,95 +1,205 @@
-/* ===== Borun Studios – Lightweight Dark Backend Theme ===== */
+// ============================
+// Borun Studios – Backend Theme
+// تمرکز: فقط رنگ و هاور، بدون دست‌کاری لِی‌اوت
+// ============================
 
-/* رنگ‌های برند بورون */
-:root {
-    --borun-accent-1: #83d8ae;
-    --borun-accent-2: #d5a5c8;
-    --borun-accent-3: #8fece4;
-    --borun-accent-4: #c6fecd;
+// پالت برند
+$borun-primary:   #83d8ae; // سبز نعناعی – دکمه اصلی
+$borun-link:      #8fece4; // لینک‌ها
+$borun-link-hover:#d5a5c8; // هاور لینک/منو
+$borun-soft-bg:   #f6f7fb; // بک‌گراند خیلی ملایم برای بعضی بلوک‌ها
+$borun-border:    #e0e3ee; // خط‌های ظریف
 
-    --borun-bg-main: #111111;
-    --borun-bg-panel: #181818;
-    --borun-bg-card: #202020;
-    --borun-text-main: #f5f5f5;
-    --borun-text-muted: #b3b3b3;
+// ---------------
+// بک‌گراندهای ملایم
+// ---------------
+
+// خود صفحه (زیاد دست نمی‌زنیم، فقط کمی نرم‌تر)
+.o_web_client {
+    background-color: #f3f4f8;
 }
 
-/* بدنه‌ی کلی */
-body.o_web_client {
-    background-color: var(--borun-bg-main);
-    color: var(--borun-text-main);
+// پنل‌های بالا (فیلترها، کنترل‌پنل، هدرهای فرم‌ها)
+.o_control_panel,
+.o_cp_top,
+.o_cp_bottom {
+    background-color: $borun-soft-bg;
+    border-bottom: 1px solid $borun-border;
 }
 
-/* نوار بالا و کنترل پنل */
-.o_main_navbar,
-.o_control_panel {
-    background-color: var(--borun-bg-panel);
-    color: var(--borun-text-main);
+// برخی کاردها/باكس‌ها
+.o_form_sheet_bg,
+.o_content .o_list_view,
+.o_kanban_view .o_kanban_record {
+    background-color: white;
 }
 
-/* محتوای فرم‌ها و لیست‌ها */
-.o_content,
-.o_form_view,
-.o_list_view tbody tr {
-    background-color: var(--borun-bg-main);
-    color: var(--borun-text-main);
-}
+// ---------------
+// دکمه‌های اصلی (مثل Save)
+// ---------------
 
-/* کارت‌ها، داشبوردها، کانبان */
-.o_kanban_view .o_kanban_record,
-.o_dashboard,
-.o_card {
-    background-color: var(--borun-bg-card);
-    color: var(--borun-text-main);
-    border-radius: 6px;
-}
-
-/* متن‌های ملایم‌تر */
-.o_muted,
-.text-muted,
-.o_stat_value small {
-    color: var(--borun-text-muted) !important;
-}
-
-/* لینک‌ها */
-a,
-.o_form_uri,
-.o_link {
-    color: var(--borun-accent-3);
-}
-
-/* دکمه‌های اصلی */
 .o_form_button_save,
 button.btn-primary,
-button.btn-fill-primary {
-    background-color: var(--borun-accent-1);
-    border-color: var(--borun-accent-1);
+button.btn-fill-primary,
+a.btn-primary {
+    background-color: $borun-primary;
+    border-color:     $borun-primary;
+    color: #111111;
+
+    &:hover,
+    &:focus {
+        background-color: darken($borun-primary, 7%);
+        border-color:     darken($borun-primary, 7%);
+        color: #111111;
+    }
+
+    &:active {
+        background-color: darken($borun-primary, 12%);
+        border-color:     darken($borun-primary, 12%);
+        color: #111111;
+    }
+}
+
+// دکمه‌های ثانویه (Discard، Cancel و …)
+button.btn-secondary,
+a.btn-secondary {
+    background-color: transparent;
+    border-color: rgba(0,0,0,0.08);
+    color: $borun-link;
+
+    &:hover,
+    &:focus {
+        border-color: rgba(0,0,0,0.18);
+        color: $borun-link-hover;
+        background-color: rgba(143, 236, 228, 0.06); // آبی خیلی کم‌رنگ
+    }
+}
+
+// ---------------
+// لینک‌ها و هاورها (کل سیستم)
+// ---------------
+
+// متن لینک‌ها
+a,
+.o_form_label_help,
+.o_field_widget .o_form_uri {
+    color: $borun-link;
+}
+
+a:hover,
+a:focus,
+.o_form_label_help:hover {
+    color: $borun-link-hover;
+    text-decoration: none;
+}
+
+// ---------------
+// نوار بالای اودو (منوها)
+// ---------------
+
+.o_main_navbar {
+    background-color: #181b20; // نوار بالا تیره بمونه
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+// عنوان منوها و آیتم‌ها
+.o_main_navbar .o_menu_sections .dropdown-toggle,
+.o_main_navbar .o_menu_entry,
+.o_main_navbar .o_menu_brand {
+    color: #f3f4f6;
+}
+
+// هاور و منوی فعال – به جای بنفش
+.o_main_navbar .o_menu_entry:hover,
+.o_main_navbar .o_menu_entry:focus,
+.o_main_navbar .o_menu_entry.active,
+.o_main_navbar .dropdown.show > .dropdown-toggle {
+    background-color: rgba(213, 165, 200, 0.20); // صورتی ملایم
+    color: $borun-link-hover;
+}
+
+// آیکون‌های راست نوار بالا (نوتیفیکیشن، یوزر و …)
+.o_main_navbar .o_navbar_apps_menu,
+.o_main_navbar .o_navbar_item {
+    color: #e5e7f0;
+
+    &:hover,
+    &:focus {
+        color: $borun-link-hover;
+        background-color: transparent;
+    }
+}
+
+// ---------------
+// جدول‌ها و لیست‌ها
+// ---------------
+
+.o_list_view table thead {
+    background-color: $borun-soft-bg;
+}
+
+.o_list_view .o_data_row:nth-child(odd) {
+    background-color: #f9fafc;
+}
+
+.o_list_view .o_data_row:hover {
+    background-color: rgba(143, 236, 228, 0.12); // آبی هاور خیلی کم
+}
+
+// ---------------
+// کانبان، تودو، پایپ‌لاین
+// ---------------
+
+.o_kanban_view .o_kanban_record {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid $borun-border;
+}
+
+.o_kanban_view .o_kanban_record:hover {
+    border-color: $borun-link-hover;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.09);
+}
+
+// ---------------
+// فرم‌ها – اینپوت‌ها
+// ---------------
+
+.o_input, 
+input.o_input,
+textarea.o_input {
+    background-color: white;
+    border-color: $borun-border;
+}
+
+.o_input:focus,
+input.o_input:focus,
+textarea.o_input:focus {
+    border-color: $borun-link;
+    box-shadow: 0 0 0 1px rgba(143, 236, 228, 0.5);
+}
+
+// ---------------
+// بَج‌ها، استاتوس‌ها، تگ‌ها
+// ---------------
+
+.badge,
+.o_tag {
+    border-radius: 999px;
+}
+
+// status‌های سبز (Paid, Won, …)
+.badge-success,
+.o_tag.o_tag_color_10 {
+    background-color: $borun-primary;
     color: #111111;
 }
 
-/* دکمه‌های ثانویه / لینک‌دار */
-button.btn-secondary,
-.o_button_import,
-.o_button_export {
-    background-color: var(--borun-bg-panel);
-    border-color: var(--borun-bg-panel);
-    color: var(--borun-accent-3);
-}
+// لینک‌های کوچک داخل stat‌ها
+.o_stat_value a {
+    color: $borun-link;
 
-/* هاور دکمه‌ها */
-button.btn-primary:hover,
-.o_form_button_save:hover {
-    filter: brightness(1.08);
-}
-
-/* ردیف‌های جدول یکی در میان کمی تیره‌تر */
-.o_list_view tbody tr:nth-child(odd) {
-    background-color: #151515;
-}
-
-/* بکگراندِ دکمه‌های سبز استیتوس (Paid, Posted, ...) را کمی هماهنگ کنیم */
-.badge-success,
-.o_status_green {
-    background-color: var(--borun-accent-1) !important;
-    color: #111111 !important;
+    &:hover {
+        color: $borun-link-hover;
+    }
 }
